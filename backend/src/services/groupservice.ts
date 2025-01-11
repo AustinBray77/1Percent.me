@@ -31,4 +31,8 @@ async function getGroupCollection() {
     return groups;
 }
 
-export { getGroupTable, addGroup, getGroupCollection, getGroup };
+async function getGroupsFromUser(id: string): Promise<Group[]> {
+    return Promise.reject(new Error("Not implemented"));
+}
+
+export { addGroup, getGroupCollection, getGroup, getGroupsFromUser };
