@@ -3,21 +3,30 @@ import * as mongoDB from "mongodb";
 import { connectToDB } from "./databaseservice";
 
 //This function should be used to get the group collection
-async function getGroup(
+async function getGroupTable(
     collectionName: string
 ): Promise<mongoDB.Collection<Group>> {
     const database = await connectToDB();
     return database.collection<Group>(collectionName);
 }
 
+
+async function getGroup (groupName: string){
+    const groupCollection = await getGroupTable("groups");
+    const group = await groupCollection.findOne({name: groupName});
+    return group;
+}
+
 async function addGroup(data: Group) {
-    const groupCollection = await getGroup("groups");
+    const groupCollection = await getGroupTable("groups");
     const result = await groupCollection.insertOne(data);
     return result.insertedId;
 }
 
+
+
 async function getGroupCollection() {
-    const groupCollection = await getGroup("group");
+    const groupCollection = await getGroupTable("group");
     const groups = await groupCollection.find({}).toArray();
     return groups;
 }
