@@ -1,7 +1,7 @@
 import { getUserStreaks } from "@/services/streakservice";
-import { User } from "@/types/user";
+import { Streak } from "@/types/streak";
 import type { NextApiRequest, NextApiResponse } from "next";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 /**
  * Example Request
@@ -9,10 +9,10 @@ import { NextResponse } from "next/server";
  */
 
 //Gets the current streak information for a given user
-async function POST(req: NextApiRequest) {
+async function POST(req: NextRequest) {
     return req
         .json()
-        .then((data: any) => {
+        .then(async (data: any) => {
             //Get user
             const user = data["user_id"];
 
@@ -23,9 +23,10 @@ async function POST(req: NextApiRequest) {
             console.log(user);
 
             //Get streaks based on user from database
-            const streaks = getUserStreaks(user);
-
-            return NextResponse.json({ groups: streaks });
+            return getUserStreaks(user);
+        })
+        .then((streak: Streak) => {
+            return NextResponse.json({ groups: streak });
         })
         .catch((err: any) => {
             console.error(err);

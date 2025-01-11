@@ -1,26 +1,21 @@
-import { addGroup } from "@/services/groupservice";
-import { createGroupFromObj, Group } from "@/types/group";
-import { NextResponse, NextRequest } from "next/server";
+import { createUser } from "@/services/profileservice";
+import { createUserFromObj, User } from "@/types/user";
+import { NextRequest, NextResponse } from "next/server";
 
-/**
- * Example Request
- *
- */
-
-//Create a group with the provided information
+//Creates a user with the provided information
 async function POST(req: NextRequest) {
     //Gets filters from request
     return req
         .json()
-        .then((data: any) => createGroupFromObj(data["group"]))
-        .then((group: Group) => {
-            console.log(group);
+        .then((data: any) => createUserFromObj(data["user"]))
+        .then((user: User) => {
+            console.log(user);
 
             //Add group to DB
-            addGroup(group);
+            createUser(user);
 
             return NextResponse.json(
-                { message: "Group created" },
+                { message: "User created" },
                 { status: 201 }
             );
         })

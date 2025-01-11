@@ -1,12 +1,12 @@
-import type { NextApiRequest, NextApiResponse } from "next";
-import { NextResponse } from "next/server";
+import { getGroupsFromUser } from "@/services/groupservice";
+import { NextRequest, NextResponse } from "next/server";
 
 /**
  * Example Request
  * curl --header "Content-Type: application/json" --data "{\"user\": \"💯\"}" --request POST http://localhost:3000/api/group/from-user
  */
 //Gets all groups that the user is a part of
-async function POST(req: NextApiRequest) {
+async function POST(req: NextRequest) {
     return req
         .json()
         .then((data: any) => {
@@ -20,7 +20,7 @@ async function POST(req: NextApiRequest) {
             console.log(user);
 
             //Get groups based on user from database
-            const groups = { Data: "Groups from user" };
+            const groups = getGroupsFromUser(user);
 
             return NextResponse.json({ groups: groups });
         })
