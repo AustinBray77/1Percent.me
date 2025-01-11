@@ -1,5 +1,5 @@
 type Streak = {
-    user: string;
+    userid: string;
     fitness_streak: number;
     reading_streak: number;
     coding_streak: number;

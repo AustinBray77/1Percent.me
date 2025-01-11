@@ -1,3 +1,5 @@
+import { User } from "./user";
+
 type Group = {
     name: string;
     description: string;
