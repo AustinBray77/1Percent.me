@@ -36,7 +36,13 @@ async function filterGroups(query: any): Promise<Group[]> {
 }
 
 async function getGroupsFromUser(id: string): Promise<Group[]> {
-    return Promise.reject(new Error("Not implemented"));
+    const groupCollection = await getGroupTable();
+    
+    const userGroups = await groupCollection.find({members: id}).toArray();
+
+    return userGroups as Group[];
+    
+
 }
 
 export {
