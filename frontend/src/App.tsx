@@ -1,17 +1,17 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import './index.css';
-import GroupSwipeCard from './components/GroupSwipeCard.tsx';
+import Home from "./pages/Home.tsx";
+import Profile from "./pages/Profile.tsx";
+import {BrowserRouter, Route, BrowserRouter as Router, Routes} from "react-router-dom";
 
 function App() {
   return (
-    <main>
-      <div className="phoneScreen"> 
-        <GroupSwipeCard groupInfo={""} /> 
-      </div>
-    </main>
-
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" Component={Home}/>
+        <Route path="/profile" Component={Profile}/>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

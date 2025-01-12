@@ -17,9 +17,11 @@ code {
 }
 
 :root{
-  --mainPurple: #A846A0;
-  --hoverPurple: #782E72;
-  --platinum: #E0E0E2;
   --mindaro: #FBFFAD;
-  --richBlack: #0D1B2A
+  --mainPurple: #a846a0;
+  --hoverPurple: #782E72;
+  --richBlack: #0d1b2a;
+  --richBlackHover: #152C44;
+  --platinum: #e0e0e2;
+  --orangePeel: #FF9F1C;
 }
