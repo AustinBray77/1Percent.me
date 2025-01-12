@@ -1,6 +1,7 @@
 .groupDescription {
     color: var(--mindaro);
     size: 9;
-    font-family: "Kanit" 
+    font-family: "Kanit";
+    margin: 2%
 
 }

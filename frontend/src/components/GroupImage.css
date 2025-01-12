@@ -1,5 +1,8 @@
 .groupImage {
-    border-width: 3px;
     border-radius: 2%;
+    border: solid;
     border-color: var(--mindaro);
+    margin: 2%;
+    width: 90%
+
 }
