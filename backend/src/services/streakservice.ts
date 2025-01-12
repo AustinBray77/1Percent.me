@@ -2,15 +2,13 @@ import { Streak } from "@/types/streak";
 import * as mongoDB from "mongodb";
 import { connectToDB } from "./databaseservice";
 
-async function streakTable(
-    collectionName: string
-): Promise<mongoDB.Collection<Streak>> {
+async function streakTable(): Promise<mongoDB.Collection<Streak>> {
     const database = await connectToDB();
-    return database.collection<Streak>(collectionName);
+    return database.collection<Streak>("streaks");
 }
 
 async function getUserStreaks(id: string): Promise<Streak> {
-    const streaks = await streakTable("streaks");
+    const streaks = await streakTable();
     const userStreaks = await streaks.findOne({ userid: id });
     if (userStreaks) {
         return userStreaks;
@@ -19,7 +17,7 @@ async function getUserStreaks(id: string): Promise<Streak> {
 }
 
 async function incrementStreak(id: string, field: string): Promise<Streak> {
-    const streaks = await streakTable("streaks");
+    const streaks = await streakTable();
 
     const userStreak = await streaks.findOne({ userid: id });
     if (userStreak) {
@@ -37,7 +35,7 @@ async function incrementStreak(id: string, field: string): Promise<Streak> {
 }
 
 async function resetStreak(id: string, field: string): Promise<Streak> {
-    const streaks = await streakTable("streaks");
+    const streaks = await streakTable();
     const userStreak = await streaks.findOne({ userid: id });
     if (userStreak) {
         const reset = await streaks.updateOne({ userid: id }, { [field]: 0 });
@@ -50,7 +48,7 @@ async function resetStreak(id: string, field: string): Promise<Streak> {
 }
 
 async function createStreak(data: Streak): Promise<boolean> {
-    const streaks = await streakTable("streaks");
+    const streaks = await streakTable();
     const userStreak = await streaks.findOne({ userid: data.userid });
     if (userStreak) {
         return false;
