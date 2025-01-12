@@ -1,0 +1,15 @@
+button{
+    width: 75%;
+    height: 70px;
+    align-self: center;
+    background-color: var(--richBlack);
+    border-radius: 30px;
+    color: white;
+    font-family: "Kanit";
+    font-size: 25px;
+    margin-top: 200px;
+}
+
+button:hover{
+    background-color: var(--richBlackHover);
+}
