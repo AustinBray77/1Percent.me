@@ -1,0 +1,27 @@
+.bar{
+    display: flex;
+    flex-direction: row;
+}
+
+.element{
+    width: 25%;
+    color: var(--mainPurple);
+    display: flex;
+}
+
+.element:hover{
+    color: var(--hoverPurple);
+}
+
+.selectedElem{
+    width: 25%;
+    color: var(--orangePeel);
+    display: flex;
+}
+
+.icon{
+    width: 80%;
+    height: 80%;
+    align-self: center;
+}
+
