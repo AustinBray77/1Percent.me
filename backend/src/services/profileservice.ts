@@ -16,9 +16,10 @@ async function userTable(
 // Return false if the user already exists
 async function createUser(data: User): Promise<boolean> {
     const userCollection = await userTable("users");
-    const user = await userCollection.findOne({ id: data.id });
+    const user_by_id = await userCollection.findOne({ id: data.id });
+    const user_by_email = await userCollection.findOne({ email: data.email }) ;
 
-    if (user) {
+    if (user_by_id || user_by_email) {
         // return Promise.reject(new Error("User already Exists"));
         return false;
     }
