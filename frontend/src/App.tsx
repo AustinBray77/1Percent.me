@@ -1,16 +1,17 @@
 import React from 'react';
 import './App.css';
-import LoginButton from './componentsTest/LoginButton.tsx';
-import LogoutButton from './componentsTest/LogoutButton.tsx';
+import Home from "./pages/Home.tsx";
+import Profile from "./pages/Profile.tsx";
+import {BrowserRouter, Route, BrowserRouter as Router, Routes} from "react-router-dom";
 
 function App() {
   return (
-    <main >
-      <LoginButton/>
-      <LogoutButton/>
-      
-
-    </main>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" Component={Home}/>
+        <Route path="/profile" Component={Profile}/>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
