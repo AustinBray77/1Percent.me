@@ -3,7 +3,7 @@ import { User } from "../types/user";
 
 function addUser(user: User): Promise<string> {
     return axios
-        .post("/api/users/add", JSON.stringify(user), {
+        .post("http://localhost:3000/api/users/add", JSON.stringify(user), {
             headers: { "Content-Type": "application/json" },
         })
         .then((res: AxiosResponse<any, any>) => {
@@ -17,7 +17,7 @@ function addUser(user: User): Promise<string> {
 
 function getUser(user_id: string): Promise<User> {
     return axios
-        .post("/api/users/get", JSON.stringify({ user_id: user_id }), {
+        .post("http://localhost:3000/api/users/get", JSON.stringify({ user_id: user_id }), {
             headers: { "Content-Type": "application/json" },
         })
         .then((res: AxiosResponse<any, any>) => {
