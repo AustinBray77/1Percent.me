@@ -32,7 +32,6 @@ export default function Profile() {
     }
 
     setStreaks();
-    
         
     return (
         <main>

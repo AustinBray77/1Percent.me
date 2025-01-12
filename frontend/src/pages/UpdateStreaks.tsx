@@ -21,7 +21,6 @@ export default function UpdateStreaks(){
                     <h1 className = "streakName"> I thought of three things I was greatful for! </h1>
                     <h1 className = "streakName"> I was in nature today! </h1>
                 </div>
-                
                 <NavBar/>
             </div>
         </main>
