@@ -1,7 +1,10 @@
 import React from 'react';
 import "./Profile.css";
 import NavBar from '../components/NavBar.tsx';
-import {useState} from "react";
+import {useState, useEffect} from "react";
+import { useAuth0 } from '@auth0/auth0-react';
+import { getUserStreaks } from '../api/streaks.ts';
+
 
 
 export default function Profile() {
@@ -12,6 +15,16 @@ export default function Profile() {
     const [gratitude, setGratitude] = useState(3);
     const [nature, setNature] = useState(35);
 
+    const {user} = useAuth0();
+    console.log(JSON.stringify(user));
+
+    const getFitness = async () =>{
+        //console.log(await getUserStreaks("user_id_2908855241575081"))
+        //setFitness(await getUserStreaks("user_id_2908855241575081"))
+    }
+
+    //getFitness()
+        
     return (
         <main>
             <div className = 'phoneScreen'>
