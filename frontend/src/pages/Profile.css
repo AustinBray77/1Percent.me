@@ -13,6 +13,7 @@
 
 .streakName{
     margin: 0px;
+    margin-bottom: 0px !important;
     margin-left: 15px;
     width: 100%;
     font-size: 25px;
@@ -22,4 +23,5 @@
     width: 90%;
     margin-left: 15px;
     height: 25px;
+    background-color: purple;
 }
