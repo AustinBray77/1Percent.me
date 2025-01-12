@@ -13,11 +13,12 @@ import { addUserToGroup, getAllGroups } from "../api/groups.ts";
 export default function FindGroup(props: { user: User | undefined }) {
     const { isAuthenticated } = useAuth0();
 
-    if (!isAuthenticated || props.user == undefined) {
+    if (!isAuthenticated ) { //|| props.user == undefined
+        console.log('hi');
         return <Navigate to="/login" />;
     }
 
-    const [groups, setGroups] = React.useState([]);
+    //const [groups, setGroups] = React.useState([]);
 
     const pullGroups = async () => {
         setGroups(await getAllGroups());
@@ -32,7 +33,7 @@ export default function FindGroup(props: { user: User | undefined }) {
     return (
         <main>
             <div className="groupScreenPhone">
-                <GroupSwipeCard groups={groups} joinGroup={joinGroup} />
+                <GroupSwipeCard groups={[]} joinGroup={joinGroup} />
                 <NavBar />
             </div>
         </main>
