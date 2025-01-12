@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import LikeButton from "./LikeButton.tsx";
 import DislikeButton from "./DislikeButton.tsx";
 import GroupDescription from "./GroupDescription.tsx";
@@ -14,7 +14,14 @@ export default function GroupSwipeCard(props: {
     joinGroup: (group_name: string) => void;
     groups: Group[];
 }) {
-    const [currentGroups, setCurrentGroups] = useState(props.groups);
+    const [currentGroups, setCurrentGroups] = useState([]);
+
+    useEffect(() => {
+        setCurrentGroups(props.groups);
+    }, [props.groups]);
+
+    console.log(props.groups);
+    console.log(currentGroups);
 
     if (currentGroups.length === 0) {
         return <GroupSearchBar />;

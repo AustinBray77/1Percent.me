@@ -3,11 +3,14 @@ import { User } from "../types/user";
 
 function addUser(user: User): Promise<string> {
     return axios
-        .post("http://localhost:3000/api/users/add", JSON.stringify(user), {
-            headers: { "Content-Type": "application/json" },
-        })
+        .post(
+            "http://localhost:3000/api/profile/add",
+            JSON.stringify({ user: user }),
+            {
+                headers: { "Content-Type": "application/json" },
+            }
+        )
         .then((res: AxiosResponse<any, any>) => {
-            console.log("worked!")
             return res.data["user_id"] as string;
         })
         .catch((err) => {
@@ -18,9 +21,13 @@ function addUser(user: User): Promise<string> {
 
 function getUser(user_id: string): Promise<User> {
     return axios
-        .post("http://localhost:3000/api/users/get", JSON.stringify({ user_id: user_id }), {
-            headers: { "Content-Type": "application/json" },
-        })
+        .post(
+            "http://localhost:3000/api/profile/get",
+            JSON.stringify({ user_id: user_id }),
+            {
+                headers: { "Content-Type": "application/json" },
+            }
+        )
         .then((res: AxiosResponse<any, any>) => {
             return res.data["user"] as User;
         })
