@@ -8,27 +8,30 @@ import { getUserStreaks } from '../api/streaks.ts';
 
 
 export default function Profile() {
-    const [fitness, setFitness] = useState(8);
-    const [reading, setReading] = useState(18);
-    const [coding, setCoding] = useState(2);
-    const [meditate, setMeditate] = useState(23);
-    const [gratitude, setGratitude] = useState(3);
-    const [nature, setNature] = useState(35);
+    const [fitness, setFitness] = useState(0);
+    const [reading, setReading] = useState(0);
+    const [coding, setCoding] = useState(0);
+    const [meditate, setMeditate] = useState(0);
+    const [gratitude, setGratitude] = useState(5);
+    const [nature, setNature] = useState(10); //Testing style
 
     const {user} = useAuth0();
     console.log(JSON.stringify(user));
 
-    const UpdateStreaks = async () =>{
-        const userData = await getUserStreaks("user_id_2908855241575081");
-        setFitness(userData.fitness_streak);
-        setReading(userData.reading_streak);
-        setCoding(userData.coding_streak);
-        setMeditate(userData.meditation_streak);
-        setGratitude(userData.graditude_streak);
-        setNature(userData.nature_streak);
+    const setStreaks = async () =>{
+        const userInfo = await getUserStreaks("user_id_2908855241575081");
+        console.log(userInfo);
+        console.log(userInfo.fitness_streak);
+        setFitness(userInfo.fitness_streak);
+        setReading(userInfo.reading_streak);
+        setCoding(userInfo.coding_streak);
+        setMeditate(userInfo.meditation_streak);
+        setGratitude(userInfo.graditude_streak);
+        //setNature(userInfo.nature_streak);
+        //setNature(12);
     }
 
-    UpdateStreaks()
+    setStreaks();
         
     return (
         <main>

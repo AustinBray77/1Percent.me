@@ -11,22 +11,22 @@ export default function NavBar() {
     const { isAuthenticated } = useAuth0();
     const location = useLocation();
     return(
-        
         <div className = 'bar'>
             <div className = {location.pathname === "/profile" ? "selectedElem" : "element"}>
-                <a href = {location.pathname === "/profile" ? null : "/profile"}>
+                <a href = {location.pathname === '/profile' ? null : "/profile"}>
                     <IoPerson className='icon' />
                 </a>
             </div>
 
+         
             <div className = {location.pathname === "/findgroup" ? "selectedElem" : "element"}>
-                <a href = {location.pathname === "/findgroup" ? null : "/findgroup"}>
+                <a href = {location.pathname === '/findgroup' ? null : "/findgroup"}>
                     <MdGroups className = 'icon' />
                 </a>
             </div>
-                
+                            
             <div className = {location.pathname === "/updateStreaks" ? "selectedElem" : "element"}>
-                <a href = {location.pathname === "/updateStreaks" ? null : "/updateStreaks"}>
+                <a href = {location.pathname === '/updateStreaks' ? null : "/updateStreaks"}>
                     <IoChatbox className = 'icon' />
                 </a>
             </div>
