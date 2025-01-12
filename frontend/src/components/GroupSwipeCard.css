@@ -1,0 +1,20 @@
+.groupSwipeCard {
+    background-color: var(--richBlack);
+    height: 96;
+    border-color: black;
+    border-width: 2px;
+    border-radius: 25px;  
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    width: 50%;
+    transform: scale(1.5);
+    padding:10px;
+    justify-content: center;    
+}
+
+.buttonBar {
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
