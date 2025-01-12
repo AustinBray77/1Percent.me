@@ -1,0 +1,25 @@
+.title{
+    font-size: 70px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.streaks{
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.streakName{
+    margin: 0px;
+    margin-left: 15px;
+    width: 100%;
+    font-size: 25px;
+}
+
+.progressBar{
+    width: 90%;
+    margin-left: 15px;
+    height: 25px;
+}
