@@ -6,14 +6,14 @@
 
 .streakName2{
     width: 100%;
-    margin-bottom: 20px !important;
+    margin-bottom: 0px !important;
     font-size: 30px;
     display: flex;
     flex-direction: row;
 
 }
 
-.streakButton{
+.streakButton2{
     margin: 0px;
     width: 27px;
     height: 27px;

@@ -37,23 +37,10 @@ export default function NavBar() {
                 >
                     <MdGroups className="icon" />
                 </a>
-            </div>
-
-            <div
-                className={
-                    location.pathname === "/updateStreaks"
-                        ? "selectedElem"
-                        : "element"
-                }
-            >
-                <a
-                    href={
-                        location.pathname === "/updateStreaks"
-                            ? null
-                            : "/updateStreaks"
-                    }
-                >
-                    <FaFireAlt className="icon" />
+            </div>     
+            <div className = {location.pathname === "/updateStreaks" ? "selectedElem" : "element"}>
+                <a href = {location.pathname === "/updateStreaks" ? null : "/updateStreaks"}>
+                    <FaFireAlt className = 'icon' />
                 </a>
             </div>
 

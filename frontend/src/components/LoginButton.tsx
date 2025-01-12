@@ -8,7 +8,6 @@ const LoginButton = () => {
     const handleClick = () =>
     {
         loginWithRedirect();
-        
     }
 
     return(

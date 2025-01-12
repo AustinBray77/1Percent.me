@@ -35,7 +35,7 @@ export default function FindGroup(props: { user: User }) {
     return (
         <main>
             <div className="groupScreenPhone">
-                <GroupSwipeCard groups={groups} joinGroup={joinGroup} />
+                <GroupSwipeCard groups={[]} joinGroup={joinGroup} />
                 <NavBar />
             </div>
         </main>
