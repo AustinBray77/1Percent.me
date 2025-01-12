@@ -18,7 +18,7 @@ export default function NavBar() {
                 <IoPerson className='icon' />
             </div>
 
-            <div className = 'element'>
+            <div className = {location.pathname === "/findgroup" ? "selectedElem" : "element"}>
                 <MdGroups className = 'icon' />
             </div>
                 
