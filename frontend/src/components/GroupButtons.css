@@ -1,0 +1,24 @@
+
+.button1 {
+    display: flex; 
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem; 
+    margin-left: 0.5rem;
+    margin-right: 0.5rem; 
+    justify-content: center; 
+    align-items: center; 
+    border-radius: 9999px; 
+    width: 3rem; 
+    height: 3rem; 
+    font-weight: 700; 
+    color: #ffffff; 
+    background-color: var(--mainPurple); 
+
+
+    
+}
+
+.button1:hover {
+    background-color: var(--hoverPurple);
+}
+
