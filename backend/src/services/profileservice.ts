@@ -14,17 +14,17 @@ async function userTable(
 
 //Remember to check if user aleready exists, if not create a new user
 // Return false if the user already exists
-async function createUser(data: User): Promise<boolean> {
+async function createUser(data: User): Promise<string> {
     const userCollection = await userTable("users");
     const user_by_id = await userCollection.findOne({ id: data.id });
-    const user_by_email = await userCollection.findOne({ email: data.email }) ;
+    const user_by_email = await userCollection.findOne({ email: data.email });
 
     if (user_by_id || user_by_email) {
         // return Promise.reject(new Error("User already Exists"));
-        return false;
+        return user_by_email?.id || user_by_id?.id || "";
     }
     const result = await userCollection.insertOne(data);
-    return true;
+    return data.id;
 }
 
 async function getUserFromId(id: string): Promise<User> {

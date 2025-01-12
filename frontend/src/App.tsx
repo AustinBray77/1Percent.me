@@ -12,15 +12,15 @@ import {
 import UpdateStreaks from "./pages/UpdateStreaks.tsx";
 
 function App() {
-    const [user, setUser] = React.useState(undefined);
+    const [user, setUser] = React.useState({ name: "", email: "", id: "" });
 
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" Component={Home} />
-                <Route path="/profile" Component={Profile} />
-                <Route path="/findgroup" Component={FindGroup} />
-                <Route path="/updateStreaks" Component={UpdateStreaks} />
+                <Route path="/" element={<Home setUser={setUser} />} />
+                <Route path="/profile" element={<Profile user={user} />} />
+                <Route path="/findgroup" element={<FindGroup user={user} />} />
+                <Route path="/updateStreaks" element={<UpdateStreaks />} />
             </Routes>
         </BrowserRouter>
     );
