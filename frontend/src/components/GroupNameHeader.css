@@ -1,0 +1,11 @@
+.groupNameHeader {
+    font-family: "Kanit";
+    text-align: center;
+    vertical-align: middle;
+    justify-content: center;
+    padding: 5px;
+    display: flex;
+    width: 100%;
+    color: var(--mindaro);
+    size: 30px;
+}

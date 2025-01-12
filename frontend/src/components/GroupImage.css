@@ -1,0 +1,5 @@
+.groupImage {
+    border-width: 3px;
+    border-radius: 2%;
+    border-color: var(--mindaro);
+}
