@@ -1,4 +1,6 @@
 import { createUser } from "@/services/profileservice";
+import { createStreak } from "@/services/streakservice";
+import { createBlankStreak } from "@/types/streak";
 import { createUserFromObj, User } from "@/types/user";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -8,14 +10,18 @@ async function POST(req: NextRequest) {
     return req
         .json()
         .then((data: any) => createUserFromObj(data["user"]))
-        .then((user: User) => {
+        .then(async (user: User) => {
             console.log(user);
 
-            //Add group to DB
-            createUser(user);
+            //Add user to DB and create streak object for user
+            const result = await createUser(user);
+
+            if (result) {
+                createStreak(createBlankStreak(user.id));
+            }
 
             return NextResponse.json(
-                { message: "User created" },
+                { message: "User created", user_id: user.id },
                 { status: 201 }
             );
         })

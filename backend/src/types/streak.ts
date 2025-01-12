@@ -8,4 +8,17 @@ type Streak = {
     graditude_streak: number;
 };
 
+function createBlankStreak(user_id: string) {
+    return {
+        userid: user_id,
+        fitness_streak: 0,
+        reading_streak: 0,
+        coding_streak: 0,
+        meditation_streak: 0,
+        nature_streak: 0,
+        graditude_streak: 0,
+    };
+}
+
+export { createBlankStreak };
 export type { Streak };

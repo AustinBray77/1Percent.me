@@ -1,12 +1,15 @@
 type Filters = {
     apply: boolean;
-    location: string;
+    filters: {
+        location: string;
+    };
 };
 
 const NoFilter = {
     apply: false,
-    distance: -1,
-    location: "none",
+    filters: {
+        location: "none",
+    },
 };
 
 function createFiltersFromObj(jsonObj: any): Filters {
@@ -16,7 +19,9 @@ function createFiltersFromObj(jsonObj: any): Filters {
 
     return {
         apply: true,
-        location: jsonObj["location"],
+        filters: {
+            location: jsonObj["location"],
+        },
     };
 }
 

@@ -1,4 +1,4 @@
-import { getGroupCollection } from "@/services/groupservice";
+import { filterGroups, getGroupCollection } from "@/services/groupservice";
 import { createFiltersFromObj, Filters } from "@/types/filters";
 import { Group } from "@/types/group";
 import { WithId } from "mongodb";
@@ -11,9 +11,6 @@ import { NextRequest, NextResponse } from "next/server";
 
 //Gets all groups with provided filters
 async function POST(req: NextRequest) {
-    //Get all groups from the database
-    const groups = await getGroupCollection();
-
     //Gets filters from request
     return req
         .json()
@@ -23,22 +20,16 @@ async function POST(req: NextRequest) {
         .then((filters: Filters) => {
             console.log(filters);
 
-            //Filters groups based on the provided filters
-            if (filters.apply) {
-                return groups
-                    .filter((group) => {
-                        for (const key in filters) {
-                            if (groups[key] != filters[key]) {
-                                return false;
-                            }
-                        }
-
-                        return true;
-                    })
-                    .map((group) => group as Group);
+            if (!filters.apply) {
+                //Get all groups from the database
+                return getGroupCollection();
             } else {
-                return groups.map((group) => group as Group);
+                //Get filtered groups from the database
+                return filterGroups(filters["filters"]);
             }
+        })
+        .then((groups: Group[]) => {
+            return groups.map((group) => group as Group);
         })
         .then((filteredGroups: Group[]) => {
             return NextResponse.json({ groups: filteredGroups });
