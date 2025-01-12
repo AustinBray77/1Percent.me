@@ -26,7 +26,7 @@ async function POST(req: NextRequest) {
             return getUserStreaks(user);
         })
         .then((streak: Streak) => {
-            return NextResponse.json({ groups: streak });
+            return NextResponse.json({ streaks: streak });
         })
         .catch((err: any) => {
             console.error(err);

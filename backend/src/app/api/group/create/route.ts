@@ -13,11 +13,11 @@ async function POST(req: NextRequest) {
     return req
         .json()
         .then((data: any) => createGroupFromObj(data["group"]))
-        .then((group: Group) => {
+        .then(async (group: Group) => {
             console.log(group);
 
             //Add group to DB
-            addGroup(group);
+            await addGroup(group);
 
             return NextResponse.json(
                 { message: "Group created" },

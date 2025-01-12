@@ -11,7 +11,7 @@ async function POST(req: NextRequest) {
         .json()
         .then((data: any) => {
             //Get user
-            const user = data["user"];
+            const user = data["user_id"];
 
             if (user == undefined) {
                 throw new Error("User not provided");
