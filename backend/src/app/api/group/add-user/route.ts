@@ -1,3 +1,4 @@
+import { addUserToGroup } from "@/services/groupservice";
 import { NextRequest, NextResponse } from "next/server";
 
 //Adds a user to a group from a given group_name and user_id
@@ -8,7 +9,7 @@ async function POST(req: NextRequest) {
             const group = data["group_name"];
             const user = data["user_id"];
 
-            await addUserToGroup(group, user);
+            await addUserToGroup(user, group);
 
             return NextResponse.json(
                 { message: "User added to group" },
