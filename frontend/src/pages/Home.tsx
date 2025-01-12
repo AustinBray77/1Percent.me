@@ -1,8 +1,8 @@
 import React from 'react';
 import './Home.css';
-import LoginButton from '../componentsTest/LoginButton.tsx';
-import LogoutButton from '../componentsTest/LogoutButton.tsx';
-import NavBar from '../componentsTest/NavBar.tsx';
+import LoginButton from '../components/LoginButton.tsx';
+import LogoutButton from '../components/LogoutButton.tsx';
+import NavBar from '../components/NavBar.tsx';
 import { useAuth0 } from '@auth0/auth0-react';
 import { Navigate } from 'react-router-dom';
 

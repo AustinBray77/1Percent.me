@@ -1,6 +1,6 @@
 import React from 'react';
 import "./Profile.css";
-import NavBar from '../componentsTest/NavBar.tsx';
+import NavBar from '../components/NavBar.tsx';
 
 export default function Profile() {
     return (
