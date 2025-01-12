@@ -6,7 +6,7 @@ export default function Profile() {
     return (
         <main>
             <div className = 'phoneScreen'>
-                <p>Hello</p>
+                <h1 class> Streaks</h1>
                 <NavBar/>
             </div>
         </main>
