@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import LoginButton from "../components/LoginButton.tsx";
 import LogoutButton from "../components/LogoutButton.tsx";
 import NavBar from "../components/NavBar.tsx";
@@ -10,23 +10,26 @@ import "./FindGroup.css";
 import { User } from "../types/user.ts";
 import { addUserToGroup, getAllGroups } from "../api/groups.ts";
 
-export default function FindGroup(props: { user: User | undefined }) {
+export default function FindGroup(props: { user: User }) {
     const { isAuthenticated } = useAuth0();
-
-    if (!isAuthenticated || props.user == undefined) {
-        return <Navigate to="/login" />;
-    }
-
     const [groups, setGroups] = React.useState([]);
 
     const pullGroups = async () => {
-        setGroups(await getAllGroups());
+        let groups = await getAllGroups();
+
+        setGroups(groups);
     };
 
-    pullGroups();
+    /*if (props.user == { name: "", email: "", id: "" }) {
+        return <Navigate to="/" />;
+    }*/
+
+    useEffect(() => {
+        pullGroups();
+    }, []);
 
     const joinGroup = async (group_name: string) => {
-        addUserToGroup(props.user?.id ?? "", group_name);
+        addUserToGroup(props.user.id ?? "", group_name);
     };
 
     return (

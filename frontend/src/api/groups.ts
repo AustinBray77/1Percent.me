@@ -3,7 +3,7 @@ import { Group } from "../types/group";
 
 function getAllGroups(): Promise<Group[]> {
     return axios
-        .post("http://localhost:3000/api/groups/all", JSON.stringify({}), {
+        .post("http://localhost:3000/api/group/all", JSON.stringify({}), {
             headers: { "Content-Type": "application/json" },
         })
         .then((res: AxiosResponse<any, any>) => {
@@ -18,7 +18,7 @@ function getAllGroups(): Promise<Group[]> {
 function getGroupsByFilters(filters: any): Promise<Group[]> {
     return axios
         .post(
-            "http://localhost:3000/api/groups/all",
+            "http://localhost:3000/api/group/all",
             JSON.stringify({ filters: filters }),
             {
                 headers: { "Content-Type": "application/json" },
@@ -36,7 +36,7 @@ function getGroupsByFilters(filters: any): Promise<Group[]> {
 function getGroupsFromUser(user_id: string): Promise<Group[]> {
     return axios
         .post(
-            "http://localhost:3000/api/groups/from-user",
+            "http://localhost:3000/api/group/from-user",
             JSON.stringify({ user_id: user_id }),
             {
                 headers: { "Cntent-Type": "application/json" },

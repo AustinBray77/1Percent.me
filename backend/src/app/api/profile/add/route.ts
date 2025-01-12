@@ -21,7 +21,7 @@ async function POST(req: NextRequest) {
             }
 
             return NextResponse.json(
-                { message: "User created", user_id: user.id },
+                { message: "User created", user_id: result },
                 { status: 201 }
             );
         })
