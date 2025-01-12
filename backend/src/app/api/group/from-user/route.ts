@@ -9,7 +9,7 @@ import { NextRequest, NextResponse } from "next/server";
 async function POST(req: NextRequest) {
     return req
         .json()
-        .then((data: any) => {
+        .then(async (data: any) => {
             //Get user
             const user = data["user_id"];
 
@@ -20,7 +20,7 @@ async function POST(req: NextRequest) {
             console.log(user);
 
             //Get groups based on user from database
-            const groups = getGroupsFromUser(user);
+            const groups = await getGroupsFromUser(user);
 
             return NextResponse.json({ groups: groups });
         })

@@ -1,6 +1,7 @@
 import { Group } from "@/types/group";
 import * as mongoDB from "mongodb";
 import { connectToDB } from "./databaseservice";
+import { getUserFromId } from "./profileservice";
 
 //This function should be used to get the group collection
 async function getGroupTable(): Promise<mongoDB.Collection<Group>> {
@@ -20,6 +21,15 @@ async function addGroup(data: Group) {
     return result.insertedId;
 }
 
+async function addUserToGroup(userid: string, groupName: string){
+    const groupCollection = await getGroupTable();
+    
+    const updateGroup = await groupCollection.updateOne(
+        { name: groupName },
+        { $push: {members: userid}}
+    )
+}
+
 async function getGroupCollection() {
     const groupCollection = await getGroupTable();
     const groups = groupCollection.find().toArray();
@@ -36,7 +46,13 @@ async function filterGroups(query: any): Promise<Group[]> {
 }
 
 async function getGroupsFromUser(id: string): Promise<Group[]> {
-    return Promise.reject(new Error("Not implemented"));
+    const groupCollection = await getGroupTable();
+    
+    const userGroups = await groupCollection.find({members: id}).toArray();
+
+    return userGroups as Group[];
+    
+
 }
 
 export {
@@ -46,4 +62,5 @@ export {
     getGroupsFromUser,
     getGroupTable,
     filterGroups,
+    addUserToGroup,
 };
