@@ -16,7 +16,7 @@ export default function Profile() {
     const [nature, setNature] = useState(35);
 
     const {user} = useAuth0();
-    console.log(JSON.stringify(user));
+    //console.log(JSON.stringify(user));
 
     const UpdateStreaks = async () =>{
         const userData = await getUserStreaks("user_id_2908855241575081");

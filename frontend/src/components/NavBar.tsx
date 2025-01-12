@@ -1,11 +1,10 @@
 import React from 'react';
 import "./NavBar.css";
-import { IoPerson } from "react-icons/io5";
-import { MdGroups } from "react-icons/md";
-import { IoChatbox } from "react-icons/io5";
-import { MdOutlineSettings } from "react-icons/md";
+import { IoPerson,IoChatbox } from "react-icons/io5";
+import { MdGroups,MdOutlineSettings } from "react-icons/md";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useLocation } from 'react-router-dom';
+import { FaFireAlt } from "react-icons/fa";
 
 export default function NavBar() {
     const { isAuthenticated } = useAuth0();
@@ -27,7 +26,7 @@ export default function NavBar() {
                 
             <div className = {location.pathname === "/updateStreaks" ? "selectedElem" : "element"}>
                 <a href = {location.pathname === "/updateStreaks" ? null : "/updateStreaks"}>
-                    <IoChatbox className = 'icon' />
+                    <FaFireAlt className = 'icon' />
                 </a>
             </div>
 

@@ -7,6 +7,7 @@ function addUser(user: User): Promise<string> {
             headers: { "Content-Type": "application/json" },
         })
         .then((res: AxiosResponse<any, any>) => {
+            console.log("worked!")
             return res.data["user_id"] as string;
         })
         .catch((err) => {
