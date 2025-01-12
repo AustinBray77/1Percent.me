@@ -12,18 +12,23 @@ export default function NavBar() {
     const location = useLocation();
     return(
         
-        //className={location.pathname === "/home" ? "navbar-home" : location.pathname === "/profile" ? "navbar-profile" : "navbar-default"}
         <div className = 'bar'>
             <div className = {location.pathname === "/profile" ? "selectedElem" : "element"}>
-                <IoPerson className='icon' />
+                <a href = {location.pathname === "/profile" ? null : "/profile"}>
+                    <IoPerson className='icon' />
+                </a>
             </div>
 
             <div className = {location.pathname === "/findgroup" ? "selectedElem" : "element"}>
-                <MdGroups className = 'icon' />
+                <a href = {location.pathname === "/findgroup" ? null : "/findgroup"}>
+                    <MdGroups className = 'icon' />
+                </a>
             </div>
                 
-            <div className = 'element'>
-                <IoChatbox className = 'icon' />
+            <div className = {location.pathname === "/updateStreaks" ? "selectedElem" : "element"}>
+                <a href = {location.pathname === "/updateStreaks" ? null : "/updateStreaks"}>
+                    <IoChatbox className = 'icon' />
+                </a>
             </div>
 
             <div className = 'element'>

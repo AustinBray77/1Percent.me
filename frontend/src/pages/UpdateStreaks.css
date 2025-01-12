@@ -1,0 +1,18 @@
+.streak{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.streakName{
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+button{
+    margin: 0px;
+    width: 50px;
+    height: 50px;
+    padding: 0px;
+    align-self: center;
+}

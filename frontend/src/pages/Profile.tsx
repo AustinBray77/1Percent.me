@@ -18,12 +18,17 @@ export default function Profile() {
     const {user} = useAuth0();
     console.log(JSON.stringify(user));
 
-    const getFitness = async () =>{
-        //console.log(await getUserStreaks("user_id_2908855241575081"))
-        //setFitness(await getUserStreaks("user_id_2908855241575081"))
+    const UpdateStreaks = async () =>{
+        const userData = await getUserStreaks("user_id_2908855241575081");
+        setFitness(userData.fitness_streak);
+        setReading(userData.reading_streak);
+        setCoding(userData.coding_streak);
+        setMeditate(userData.meditation_streak);
+        setGratitude(userData.graditude_streak);
+        setNature(userData.nature_streak);
     }
 
-    //getFitness()
+    UpdateStreaks()
         
     return (
         <main>
